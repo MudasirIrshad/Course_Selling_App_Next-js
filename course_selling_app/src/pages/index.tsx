@@ -39,32 +39,43 @@ export default function Home() {
 
   // Handle course purchase
   async function handleClick(courseId: string) {
-    if (!localStorage.getItem("Token")) {
-      setAlert(true);
-      setTimeout(() => setAlert(false), 4000); // Hide alert after 4 seconds
-      return;
-    }
+    // if (!localStorage.getItem("Token")) {
+    setAlert(true);
+    setTimeout(() => setAlert(false), 4000); // Hide alert after 4 seconds
+    //   return;
+    // }
 
-    try {
-      const res = await axios.post(
-        `${BASE_URL}/user/purchaseCourse/${courseId}`,
-        {},
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("Token"),
-          },
-        }
-      );
-      setBuy(true);
-      setTimeout(() => setBuy(false), 4000); // Reset buy status after 4 seconds
-      console.log("Purchase Response:", res.data);
-    } catch (err) {
-      console.log("Error purchasing course:", err);
-    }
+    // try {
+    //   const res = await axios.post(
+    //     `${BASE_URL}/user/purchaseCourse/${courseId}`,
+    //     {},
+    //     {
+    //       headers: {
+    //         Authorization: "Bearer " + localStorage.getItem("Token"),
+    //       },
+    //     }
+    //   );
+    //   setBuy(true);
+    //   setTimeout(() => setBuy(false), 4000); // Reset buy status after 4 seconds
+    //   console.log("Purchase Response:", res.data);
+    // } catch (err) {
+    //   console.log("Error purchasing course:", err);
+    // }
   }
 
   return (
     <div>
+      {alert && (
+        <Alert style={{ margin: "20px" }} variant="outlined" severity="error">
+          PLEASE SIGN IN OR LOGIN TO BUY THIS COURSE. THANK YOU
+        </Alert>
+      )}
+
+      {buy && (
+        <Alert style={{ margin: "20px" }} variant="outlined" severity="success">
+          Course Purchased. THANK YOU
+        </Alert>
+      )}
       <Grid container spacing={2} sx={{ padding: 2 }}>
         {courses.map((course) => (
           <Grid item xs={12} sm={6} md={4} key={course._id}>
@@ -102,22 +113,6 @@ export default function Home() {
             </Card>
           </Grid>
         ))}
-
-        {alert && (
-          <Alert style={{ margin: "20px" }} variant="outlined" severity="error">
-            PLEASE SIGN IN OR LOGIN TO BUY THIS COURSE. THANK YOU
-          </Alert>
-        )}
-
-        {buy && (
-          <Alert
-            style={{ margin: "20px" }}
-            variant="outlined"
-            severity="success"
-          >
-            Course Purchased. THANK YOU
-          </Alert>
-        )}
       </Grid>
     </div>
   );
