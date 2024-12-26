@@ -18,7 +18,7 @@ export default async function handler(
     let gmail = inputs.data?.gmail;
     let password = inputs.data?.password;
     let findAdmin = await User.findOne({ gmail });
-    if (findAdmin) res.send({ message: "User already exits" });
+    if (findAdmin) res.send({ message: false });
     else {
       const newUser = new User({
         username,
@@ -27,7 +27,7 @@ export default async function handler(
       });
       await newUser.save();
       let token = jwt.sign({ username, gmail }, SECRET_KEY);
-      res.send({ message: "User Signup Token", token });
+      res.send({ message: true, token });
     }
   }
 }

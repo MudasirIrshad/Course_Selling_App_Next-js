@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 export default function Appbar() {
   const [usertoken, setUserToken] = useState(false);
   const [admintoken, setAdminToken] = useState(false);
@@ -104,7 +105,7 @@ export default function Appbar() {
               variant="contained"
               style={{ backgroundColor: "white", color: "black" }}
             >
-              Signup
+              <Link  href={'/signup'}>Signup</Link>
             </Button>
           </>
         )}
