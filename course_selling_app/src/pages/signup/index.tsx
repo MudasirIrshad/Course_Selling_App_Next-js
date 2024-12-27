@@ -3,9 +3,11 @@ import { BASE_URL } from "../config";
 import axios from "axios";
 import React, { useState } from "react";
 import { useSetRecoilState } from "recoil";
+import { useRouter } from "next/router";
 // import { userState } from "../store/user";
 export default function Signup() {
   //   const setUserState = useSetRecoilState(userState);
+  const router = useRouter();
   const handleClick = async () => {
     console.log(username, gmail, password);
 
@@ -28,6 +30,7 @@ export default function Signup() {
     if (data.message == true) {
       localStorage.setItem("Token", data.token);
       console.log("user signup done");
+      router.push("/");
 
       //   if (localStorage.getItem("Token")) setUserState(true);
     } else {
