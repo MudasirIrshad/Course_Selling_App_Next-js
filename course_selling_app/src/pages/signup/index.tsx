@@ -32,6 +32,7 @@ export default function Signup() {
       console.log("user signup done");
       router.push("/");
 
+      
       //   if (localStorage.getItem("Token")) setUserState(true);
     } else {
       console.log("error in signup");
