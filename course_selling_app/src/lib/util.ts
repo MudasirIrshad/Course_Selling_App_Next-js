@@ -26,4 +26,4 @@ export const CourseZodSchema = z
     published: z.boolean(),
   })
   .strict();
-  export const SECRET_KEY= 'my scret key'
+export const SECRET_KEY = "my scret key";
