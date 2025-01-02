@@ -17,8 +17,8 @@ export default async function handler(
     let username = inputs.data?.username;
     let gmail = inputs.data?.gmail;
     let password = inputs.data?.password;
-    let findAdmin = await User.findOne({ gmail });
-    if (findAdmin) res.send({ message: false });
+    let findUser = await User.findOne({ gmail });
+    if (findUser) res.send({ message: false });
     else {
       const newUser = new User({
         username,
