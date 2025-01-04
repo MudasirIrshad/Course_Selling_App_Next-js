@@ -98,7 +98,7 @@ export default function Appbar() {
                 marginRight: "5px",
               }}
             >
-              Login
+              <Link  href={'/login'}>Login</Link>
             </Button>
 
             <Button
