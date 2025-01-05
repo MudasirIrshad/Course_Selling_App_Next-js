@@ -50,7 +50,7 @@ export default function Appbar() {
                 marginRight: "5px",
               }}
             >
-              Courses
+              <Link href={'/addcourse'}>Courses</Link>
             </Button>
           </>
         ) : (
