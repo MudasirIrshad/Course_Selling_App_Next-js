@@ -29,7 +29,11 @@ export default async function handler(
         published,
       });
       await newCourse.save();
-      res.send("Course added succefully");
+      console.log("sfasfdsafasf", "asdfsdfdsaf", "sdfasdfds", "sfsdfdsfsd");
+
+      res.send({
+        abc: ["sfasfdsafasf", "asdfsdfdsaf", "sdfasdfds", "sfsdfdsfsd"],
+      });
     }
   } catch (error) {
     res.send(404);
