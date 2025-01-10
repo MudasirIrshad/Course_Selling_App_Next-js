@@ -30,7 +30,7 @@ export default function index() {
         }
       )
       .then((res) => {
-        router.push("/");
+        router.push("/viewAllCourses");
       })
       .catch((err) => console.log("error in adding course"));
   };
