@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { Course } from "../database/db";
 import { corsMiddleware } from "@/lib/cors";
 import { UserZodSchema, SECRET_KEY } from "@/lib/util";
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse

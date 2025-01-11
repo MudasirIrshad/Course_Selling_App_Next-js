@@ -1,13 +1,16 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 export default function Appbar() {
+  const router = useRouter();
   const [usertoken, setUserToken] = useState(false);
   const [admintoken, setAdminToken] = useState(false);
   const handleClick = () => {
     setUserToken(false);
     setAdminToken(false);
     localStorage.clear();
+    router.push("/");
   };
   useEffect(() => {
     if (localStorage.getItem("message") == "user") {
@@ -50,7 +53,7 @@ export default function Appbar() {
                 marginRight: "5px",
               }}
             >
-              <Link href={'/addcourse'}>Courses</Link>
+              <Link href={"/addcourse"}>Courses</Link>
             </Button>
           </>
         ) : (
@@ -98,14 +101,14 @@ export default function Appbar() {
                 marginRight: "5px",
               }}
             >
-              <Link  href={'/login'}>Login</Link>
+              <Link href={"/login"}>Login</Link>
             </Button>
 
             <Button
               variant="contained"
               style={{ backgroundColor: "white", color: "black" }}
             >
-              <Link  href={'/signup'}>Signup</Link>
+              <Link href={"/signup"}>Signup</Link>
             </Button>
           </>
         )}
